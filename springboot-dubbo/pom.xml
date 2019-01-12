@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- 项目说明：这里作为聚合工程的父工程 -->
+    <groupId>com.zc</groupId>
+    <artifactId>springboot-dubbo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- 基本信息 -->
+    <description>SpringBoot 多模块构建dubbo示例</description>
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 在这里设置打包类型为pom，作用是为了实现多模块项目 -->
+    <packaging>pom</packaging>
+
+    <!-- 继承说明：这里继承SpringBoot提供的父工程 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.1.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <!-- 模块说明：这里声明多个子模块  (springboot子模块 需要手动添加)-->
+    <modules>
+        <module>zc-common</module>
+        <module>zc-service-api</module>
+        <module>zc-service</module>
+        <module>zc-rest</module>
+    </modules>
+
+
+    <!-- 设置我们项目的一些版本属性 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <dubbo.version>2.6.0</dubbo.version>
+        <zkclient.version>0.10</zkclient.version>
+
+       <!-- <slf4j.version>1.7.7</slf4j.version>
+        <logback.version>1.1.6</logback.version>-->
+
+        <spring-boot.version>2.1.1.RELEASE</spring-boot.version>
+    </properties>
+
+
+
+    <!-- 声明一些项目依赖管理，方便我们的依赖版本管理 -->
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Dubbo依赖 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <!-- zookeeper的客户端依赖 -->
+            <dependency>
+                <groupId>com.101tec</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zkclient.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

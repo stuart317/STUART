@@ -1,0 +1,19 @@
+server:
+  #避免和监控中心端口冲突，设为8081端口访问
+  port: 8081
+  ## 项目访问根目录
+  servlet :
+    context-path: /
+
+## dubbo配置
+dubbo :
+  application :
+    name : zc-rest-consumer
+  registry :
+    address : zookeeper://127.0.0.1:2181
+  monitor :
+      protocol : registry
+
+#日志
+logging :
+  config : classpath:logback.xml

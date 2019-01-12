@@ -1,0 +1,38 @@
+
+
+##备注
+
+mybatis-generator启动，直接右边maven Projects => solr => Plugins => 双击mybatis-generator下的 jar
+
+##solr 查询说明------------------------------------------------
+
+q - 查询字符串，如果查询所有*:* (id:1)
+fq - （filter query）过虑查询，过滤条件，基于查询出来的结果
+fl - 指定返回那些字段内容，用逗号或空格分隔多个。
+start - 分页开始
+rows - 分页查询数据
+sort - 排序，格式：sort=<field name>+<desc|asc>[,<field name>+<desc|asc>]… 。示例：（score desc, price asc）表示先 “score” 降序, 再 “price” 升序，默认是相关性降序。
+wt - (writer type)指定输出格式，可以有 xml, json, php, phps。
+fl表示索引显示那些field( *表示所有field,如果想查询指定字段用逗号或空格隔开（如：Name,SKU,ShortDescription或Name SKU ShortDescription【注：字段是严格区分大小写的】）)
+q.op 表示q 中 查询语句的 各条件的逻辑操作 AND(与) OR(或)
+hl 是否高亮 ,如hl=true
+hl.fl 高亮field ,hl.fl=Name,SKU
+hl.snippets :默认是1,这里设置为3个片段
+hl.simple.pre 高亮前面的格式
+hl.simple.post 高亮后面的格式
+facet 是否启动统计
+facet.field 统计field
+
+1. “:” 指定字段查指定值，如返回所有值*:*
+2. “?” 表示单个任意字符的通配
+3. “*” 表示多个任意字符的通配（不能在检索的项开始使用*或者?符号）
+4. “~” 表示模糊检索，如检索拼写类似于”roam”的项这样写：roam~将找到形如foam和roams的单词；roam~0.8，检索返回相似度在0.8以上的记录。
+5. 邻近检索，如检索相隔10个单词的”apache”和”jakarta”，”jakarta apache”~10
+6. “^” 控制相关度检索，如检索jakarta apache，同时希望去让”jakarta”的相关度更加好，那么在其后加上”^”符号和增量值，即jakarta^4 apache
+7. 布尔操作符AND、||
+8. 布尔操作符OR、&&
+9. 布尔操作符NOT、!、- （排除操作符不能单独与项使用构成查询）
+10. “+” 存在操作符，要求符号”+”后的项必须在文档相应的域中存在
+11. ( ) 用于构成子查询
+12. [] 包含范围检索，如检索某时间段记录，包含头尾，date:[200707 TO 200710]
+------------------------------------------------------------------------------

@@ -1,0 +1,4 @@
+
+/** 备注 **/
+
+mybatis逆向工程 maven命令 ： mybatis-generator:generate -Dmybatis.generator.overwrite=true

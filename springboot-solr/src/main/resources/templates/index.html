@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Title</title>
+
+    <style>
+        table, th, td
+        {
+            border: 1px solid #b5c2c7;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-a">
+        <p th:text="'hello:'+${test}" ></p>
+
+        <table width="400" border="0" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>图书名称</th>
+                <th>价格</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="article:${booklist}">
+                    <td th:text="${article.id}"></td>
+                    <td th:utext="${article.title}"></td> <!-- 使用utext 会解析当中html标签 -->
+                    <td th:text="${article.price}"></td>
+                    <td></td>
+                    <!--<td><a th:href="@{'http://localhost:8080/shangPin/gengXinShangPin?id='+${shangPin.id}}">编辑</a></td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

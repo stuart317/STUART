@@ -23,7 +23,7 @@ public class TestController {
 
     @RequestMapping("hello")
     public String hello() {
-        log.info(">>>进入方法hello");
+        log.info(">>>进入方法hello"); //测试一下提交
         return testService.sayHello("给你的爱一直很安静！");
     }
 

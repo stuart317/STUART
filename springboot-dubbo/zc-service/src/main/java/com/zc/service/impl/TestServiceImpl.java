@@ -3,8 +3,10 @@ package com.zc.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.zc.bean.User;
+import com.zc.dao.UserMapper;
 import com.zc.service.TestService;
 import com.zc.utils.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,11 +27,8 @@ public class TestServiceImpl implements TestService {
     @Override
     public User findUser() {
         User user = new User();
-        user.setId(1001);
         user.setUsername("scott");
         user.setPassword("tiger");
-        user.setAge(20);
-        user.setGender(0);
         return user;
     }
 

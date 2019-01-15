@@ -112,7 +112,7 @@ public class QApplicationTests {
      * <p>
      * 根据 Wrapper 条件，查询全部记录
      * </p>
-     * @param queryWrapper 实体对象封装操作类（可以为 null）
+     *  queryWrapper 实体对象封装操作类（可以为 null）
      */
     @Test
     public void selectMaps() {
